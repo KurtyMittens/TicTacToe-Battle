@@ -10,6 +10,9 @@ class Ui_TicTacToe(QtWidgets.QMainWindow):
         self.show()
 
     def setupUi(self, TicTacToe):
+        """
+        Where the logic, buttons and visuals are set!
+        """
         TicTacToe.setObjectName("TicTacToe")
         TicTacToe.setWindowModality(QtCore.Qt.WindowModal)
         TicTacToe.resize(340, 500)
@@ -31,49 +34,34 @@ class Ui_TicTacToe(QtWidgets.QMainWindow):
         font.setBold(True)
         font.setWeight(75)
 
-
         self.game_frame = gameFrame.Ui_GameFrame(self)
         self.game_frame.hide()
-
 
         self.created_text.setFont(font)
         self.created_text.setStyleSheet("color: rgb(0, 0, 0);")
         self.created_text.setFrameShadow(QtWidgets.QFrame.Plain)
         self.created_text.setObjectName("created_text")
+        
         self.p2p_button = QtWidgets.QPushButton(self.centralwidget)
         self.p2p_button.setGeometry(QtCore.QRect(70, 230, 201, 51))
-        font = QtGui.QFont()
-        font.setFamily("Source Code Pro Medium")
-        font.setPointSize(12)
-        self.p2p_button.setFont(font)
-        self.p2p_button.setStyleSheet("QPushButton{\n"
-                                      "color: rgb(0, 0, 0);\n"
-                                      "border-radius: 25px;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QPushButton:enabled {\n"
-                                      "    background-color: rgb(214, 146, 111);\n"
-                                      "}\n"
-                                      "\n"
-                                      "QPushButton:pressed {\n"
-                                      "background-color:  rgb(255, 255, 255);\n"
-                                      "border-radius: 25px;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QPushButton:hover {\n"
-                                      "background-color: rgb(255, 255, 255);\n"
-                                      "border-radius: 25px;\n"
-                                      "}"
-                                      )
         self.p2p_button.setObjectName("p2p_button")
         self.p2p_button.clicked.connect(self.game_frame.game_start)
+
         self.p2c_button = QtWidgets.QPushButton(self.centralwidget)
         self.p2c_button.setGeometry(QtCore.QRect(70, 290, 201, 51))
-        font = QtGui.QFont()
-        font.setFamily("Source Code Pro Medium")
-        font.setPointSize(12)
-        self.p2c_button.setFont(font)
-        self.p2c_button.setStyleSheet("QPushButton{\n"
+        self.p2c_button.setObjectName("p2c_button")
+
+        self.about_me_button = QtWidgets.QPushButton(self.centralwidget)
+        self.about_me_button.setGeometry(QtCore.QRect(70, 350, 201, 51))
+        self.about_me_button.setObjectName("about_me_button")
+        self.about_me_button.clicked.connect(lambda: webbrowser.open("https://github.com/KurtyMittens"))
+
+        for i in [self.p2p_button, self.p2c_button, self.about_me_button]:  
+          font = QtGui.QFont()
+          font.setFamily("Source Code Pro Medium")
+          font.setPointSize(12)
+          i.setFont(font)
+          i.setStyleSheet("QPushButton{\n"
                                       "color: rgb(0, 0, 0);\n"
                                       "border-radius: 25px;\n"
                                       "}\n"
@@ -91,33 +79,7 @@ class Ui_TicTacToe(QtWidgets.QMainWindow):
                                       "background-color: rgb(255, 255, 255);\n"
                                       "border-radius: 25px;\n"
                                       "}")
-        self.p2c_button.setObjectName("p2c_button")
-        self.about_me_button = QtWidgets.QPushButton(self.centralwidget)
-        self.about_me_button.setGeometry(QtCore.QRect(70, 350, 201, 51))
-        self.about_me_button.clicked.connect(lambda: webbrowser.open("https://github.com/KurtyMittens"))
-        font = QtGui.QFont()
-        font.setFamily("Source Code Pro Medium")
-        font.setPointSize(12)
-        self.about_me_button.setFont(font)
-        self.about_me_button.setStyleSheet("QPushButton{\n"
-                                          "color: rgb(0, 0, 0);\n"
-                                          "border-radius: 25px;\n"
-                                          "}\n"
-                                          "\n"
-                                          "QPushButton:enabled {\n"
-                                          "    background-color: rgb(214, 146, 111);\n"
-                                          "}\n"
-                                          "\n"
-                                          "QPushButton:pressed {\n"
-                                          "background-color:  rgb(255, 255, 255);\n"
-                                          "border-radius: 25px;\n"
-                                          "}\n"
-                                          "\n"
-                                          "QPushButton:hover {\n"
-                                          "background-color: rgb(255, 255, 255);\n"
-                                          "border-radius: 25px;\n"
-                                          "}")
-        self.about_me_button.setObjectName("about_me_button")
+        
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
         self.LogoLabel.setGeometry(QtCore.QRect(50, 25, 260, 200))
         self.pic = QtGui.QPixmap("TicTacToe/Assets/logo1.png")
@@ -137,6 +99,7 @@ class Ui_TicTacToe(QtWidgets.QMainWindow):
         self.p2p_button.setText(_translate("TicTacToe", "Player Vs. Player"))
         self.p2c_button.setText(_translate("TicTacToe", "UNAVAILABLE FOR NOW"))
         self.about_me_button.setText(_translate("TicTacToe", "About Me!"))
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

@@ -25,7 +25,7 @@ class Ui_GameFrame(QtWidgets.QFrame):
                           "Mess with us and we'll do something worse than kill you. We'll kill your children.",
                           "A man who is intimate with God is not intimidated by man.",
                           "A nervous silence loosens tongues",
-                          "You don't need to be so fierce and bluffing..if you already know that I can't be intimidated.",
+                          "You don't need to be so fierce and bluffing...if you already know that I can't be intimidated.",
                           "If you spend all your time thinking about how someone is going to one-up you, you can't put your best foot forward.",
                           "The ones who hate me the most are the ones who don't scare me."]
     
@@ -144,7 +144,6 @@ class Ui_GameFrame(QtWidgets.QFrame):
 
         self.buttons = [self.Grid_1, self.Grid_2, self.Grid_3, self.Grid_4, self.Grid_5, self.Grid_6, self.Grid_7, self.Grid_8, self.Grid_9]
         for i, buttons in enumerate(self.buttons):
-        
           buttons.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
           buttons.setMouseTracking(True)
           buttons.setFocusPolicy(QtCore.Qt.StrongFocus)
@@ -207,55 +206,48 @@ class Ui_GameFrame(QtWidgets.QFrame):
         self.turn_text.setFrameShadow(QtWidgets.QFrame.Plain)
         self.turn_text.setText("")
         self.turn_text.setObjectName("turn_text")
+
         self.Player1_text = QtWidgets.QLabel(GameFrame)
         self.Player1_text.setGeometry(QtCore.QRect(120, 355, 211, 131))
-        font = QtGui.QFont()
-        font.setFamily("Source Code Pro Black")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.Player1_text.setFont(font)
-        self.Player1_text.setWordWrap(True)
-        self.Player1_text.setAlignment(QtCore.Qt.AlignCenter)
-        self.Player1_text.setStyleSheet("color: rgb(0, 0, 0);")
-        self.Player1_text.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.Player1_text.setText("")
         self.Player1_text.setObjectName("Player1_text")
         self.Player2_text = QtWidgets.QLabel(GameFrame)
-        self.Player2_text.setWordWrap(True)
-        self.Player2_text.setAlignment(QtCore.Qt.AlignCenter)
         self.Player2_text.setGeometry(QtCore.QRect(10, 355, 211, 131))
-        font = QtGui.QFont()
-        font.setFamily("Source Code Pro Black")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.Player2_text.setFont(font)
-        self.Player2_text.setStyleSheet("color: rgb(0, 0, 0);")
-        self.Player2_text.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.Player2_text.setText("")
         self.Player2_text.setObjectName("Player2_text")
+        for i in [self.Player1_text, self.Player2_text]:
+          font = QtGui.QFont()
+          font.setFamily("Source Code Pro Black")
+          font.setPointSize(9)
+          font.setBold(True)
+          font.setWeight(75)
+          i.setFont(font)
+          i.setWordWrap(True)
+          i.setAlignment(QtCore.Qt.AlignCenter)
+          i.setStyleSheet("color: rgb(0, 0, 0);")
+          i.setFrameShadow(QtWidgets.QFrame.Plain)
+          i.setText("")
+        
+
         self.restartButton = QtWidgets.QPushButton(GameFrame)
-        self.restartButton.setObjectName(u"restartButton")
+        self.restartButton.setObjectName("restartButton")
         self.restartButton.setGeometry(QtCore.QRect(150, 440, 50, 50))
-        self.restartButton.setStyleSheet(u"QPushButton{\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 25px;\n"
-"}\n"
-"\n"
-"QPushButton:enabled {\n"
-"	background-color: rgb(214, 146, 111);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color:  rgb(255, 255, 255);\n"
-"border-radius: 25px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background-color: rgb(255, 255, 255);\n"
-"border-radius: 25px;\n"
-"}")
+        self.restartButton.setStyleSheet("QPushButton{\n"
+                                        "color: rgb(0, 0, 0);\n"
+                                        "border-radius: 25px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:enabled {\n"
+                                        "	background-color: rgb(214, 146, 111);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:pressed {\n"
+                                        "background-color:  rgb(255, 255, 255);\n"
+                                        "border-radius: 25px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background-color: rgb(255, 255, 255);\n"
+                                        "border-radius: 25px;\n"
+                                        "}")
         icon = QtGui.QIcon()
         icon.addFile("TicTacToe/Assets/black-panel-restart-system-icon--6.png", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.restartButton.setIcon(icon)
